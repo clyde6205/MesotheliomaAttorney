@@ -1,0 +1,26 @@
+4. `npm run dev`
+
+## 🖼️ Frontend Setup
+
+1. `cd frontend`
+2. `npm install`
+3. `npm run dev`
+
+## 🔐 Features
+
+- AES-256-GCM encryption
+- Lead scoring logic
+- JWT auth
+- SendGrid email alerts
+- Supabase DB integration
+- Rate limiting
+- Health check route
+
+## 🚀 Deployment
+
+Use Vercel (frontend) + Render or Railway (backend). Environment variables required.
+
+## 👨‍⚖️ Mission
+
+Built to connect high-value mesothelioma leads with trusted attorneys. No fluff. No placeholders. Just conversion.
+
