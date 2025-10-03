@@ -1,10 +1,35 @@
-import LeadForm from './components/LeadForm';
+import './App.css';
 
 export default function App() {
   return (
-    <div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
-      <h1>Mesothelioma Attorney Intake</h1>
-      <LeadForm />
+    <div className="page">
+      <header className="hero">
+        <h1>Elite Mesothelioma Attorneys</h1>
+        <p>Confidential Case Review. No Fees Unless You Win.</p>
+        <div className="badges">
+          <span>✅ HIPAA Secure</span>
+          <span>🏆 Top-Rated Firms</span>
+          <span>📞 24/7 Intake</span>
+        </div>
+      </header>
+
+      <section className="lead-form">
+        <h2>Get Your Free Case Review</h2>
+        <form>
+          <label>Full Name</label>
+          <input type="text" name="name" required />
+          <label>Email</label>
+          <input type="email" name="email" required />
+          <label>Phone</label>
+          <input type="tel" name="phone" required />
+          <button type="submit">Submit Claim</button>
+        </form>
+      </section>
+
+      <footer>
+        <p>© 2025 MesotheliomaAttorney.App — All rights reserved.</p>
+        <a href="/privacy">Privacy Policy</a>
+      </footer>
     </div>
   );
 }
