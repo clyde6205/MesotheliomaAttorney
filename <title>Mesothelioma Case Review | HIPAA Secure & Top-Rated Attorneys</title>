@@ -1,6 +1,34 @@
 import './App.css';
+import { useState } from 'react';
 
 export default function App() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const payload = { name, email, phone };
+
+    try {
+      const res = await fetch('https://mesotheliomaattorney.app/api/v1/leads/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        alert('✅ Lead submitted successfully');
+      } else {
+        alert(`❌ Error: ${data.message}`);
+      }
+    } catch (err) {
+      console.error('Submission failed:', err);
+      alert('❌ Submission failed. Please try again.');
+    }
+  };
+
   return (
     <div className="page">
       <header className="hero">
@@ -15,13 +43,13 @@ export default function App() {
 
       <section className="lead-form">
         <h2>Get Your Free Case Review</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label>Full Name</label>
-          <input type="text" name="name" required />
+          <input type="text" name="name" value={name} onChange={e => setName(e.target.value)} required />
           <label>Email</label>
-          <input type="email" name="email" required />
+          <input type="email" name="email" value={email} onChange={e => setEmail(e.target.value)} required />
           <label>Phone</label>
-          <input type="tel" name="phone" required />
+          <input type="tel" name="phone" value={phone} onChange={e => setPhone(e.target.value)} required />
           <button type="submit">Submit Claim</button>
         </form>
       </section>
@@ -33,4 +61,5 @@ export default function App() {
     </div>
   );
 }
+
 
