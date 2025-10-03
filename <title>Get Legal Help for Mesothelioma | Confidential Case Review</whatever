@@ -1,0 +1,12 @@
+import { Helmet } from 'react-helmet';
+
+function App() {
+  return (
+    <>
+      <Helmet>
+        <title>Get Legal Help for Mesothelioma | Confidential Case Review</title>
+      </Helmet>
+      {/* rest of your app */}
+    </>
+  );
+}
